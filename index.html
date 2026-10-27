@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="si" data-mode="light" data-pref="system">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ශ්‍රී බෝධිරාජ මහා පිරිවෙන</title>
+<meta name="description" content="ශ්‍රී බෝධිරාජ මහා පිරිවෙන - නිල වෙබ් අඩවිය">
+<meta name="theme-color" content="#f5efe3" id="metaTheme">
+<script>
+/* තේමාව පිටුව පෙන්වීමට පෙර සකසයි (flash වළක්වයි) */
+(function(){try{var p=localStorage.getItem('sbmp-theme')||'system';var d=matchMedia('(prefers-color-scheme: dark)').matches;
+var m=p==='system'?(d?'dark':'light'):p;var h=document.documentElement;h.dataset.mode=m;h.dataset.pref=p;}catch(e){}})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;600&family=Noto+Serif+Sinhala:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5efe3; --bg2:#ece4d3; --card:#faf6ec; --ink:#1c1915; --muted:#6b6458; --line:rgba(28,25,21,.18);
+  --accent:#b4501a; --accent-ink:#fff; --leaf1:#5b6b3b; --leaf2:#8a9a55; --glass:rgba(245,239,227,.88); --sun:rgba(180,80,26,.13);
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+html[data-mode="dark"]{
+  --bg:#13100d; --bg2:#1b1713; --card:#191510; --ink:#efe7d8; --muted:#a1988a; --line:rgba(239,231,216,.17);
+  --accent:#f0a04b; --accent-ink:#1a1208; --leaf1:#8da05a; --leaf2:#b9c97f; --glass:rgba(19,16,13,.88); --sun:rgba(240,160,75,.12);
+}
+html{color-scheme:light}
+html[data-mode="dark"]{color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+@media(min-width:1600px){html{font-size:19px}}
+@media(min-width:2200px){html{font-size:26px}}
+body{font-family:'Noto Sans Sinhala','Iskoola Pota',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;overflow-x:hidden;transition:background-color .5s,color .5s}
+h1,h2,h3{font-family:'Noto Serif Sinhala','Noto Sans Sinhala',serif;font-weight:600;line-height:1.5}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.wrap{width:min(1240px,90%);margin-inline:auto}
+.ic{width:1.25em;height:1.25em;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:middle}
+.btnl{display:inline-flex;align-items:center;gap:.7rem;padding:.85rem 0;font-weight:600;position:relative}
+.btnl::after{content:"";position:absolute;left:0;right:0;bottom:.55rem;height:1px;background:currentColor;transform-origin:left;transition:transform .5s var(--ease)}
+.btnl .ic{transition:transform .5s var(--ease)}
+.btnl:hover .ic.mv{transform:translateX(6px)}
+.btnl.solid{background:var(--accent);color:var(--accent-ink);padding:.85rem 1.6rem}
+.btnl.solid::after{display:none}
+.btnl.solid:hover{filter:brightness(1.08)}
+.btnl.ghost::after{transform:scaleX(.35)}
+.btnl.ghost:hover::after{transform:scaleX(1)}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:60;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:background-color .5s}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:72px}
+.brand{display:flex;align-items:center;gap:.8rem}
+.brand svg{width:42px;height:42px;color:var(--accent);animation:spin 60s linear infinite}
+.brand b{display:block;font-family:'Noto Serif Sinhala',serif;font-weight:600;font-size:1.05rem;line-height:1.3}
+.brand small{display:block;font-size:.7rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+nav ul{display:flex;gap:.2rem;list-style:none}
+nav a.tab{display:block;padding:.5rem 1rem;font-weight:400;position:relative;color:var(--muted);transition:color .3s}
+nav a.tab::after{content:"";position:absolute;left:1rem;right:1rem;bottom:.2rem;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+nav a.tab:hover,nav a.tab.active{color:var(--ink)}
+nav a.tab.active::after,nav a.tab:hover::after{transform:scaleX(1)}
+.tools{display:flex;align-items:center;gap:.5rem}
+.theme{position:relative;display:flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.theme button{position:relative;z-index:1;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;color:var(--muted);transition:color .3s}
+.theme button .ic{width:18px;height:18px}
+.theme .thumb{position:absolute;top:3px;left:3px;width:34px;height:34px;border-radius:50%;background:var(--accent);transition:transform .45s var(--ease)}
+html[data-pref="dark"] .theme .thumb{transform:translateX(34px)}
+html[data-pref="system"] .theme .thumb{transform:translateX(68px)}
+.theme button[aria-pressed="true"]{color:var(--accent-ink)}
+.burger{display:none;width:44px;height:44px;place-items:center}
+.burger .ic{width:26px;height:26px}
+@media(max-width:900px){
+  .burger{display:grid}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;visibility:hidden;transition:max-height .5s var(--ease),visibility .5s}
+  nav.open{max-height:380px;visibility:visible}
+  nav ul{flex-direction:column;padding:.5rem 5% 1rem}
+  nav a.tab{padding:.8rem 0;border-bottom:1px solid var(--line)}
+  nav a.tab::after{display:none}
+  nav a.tab.active{color:var(--accent)}
+  .brand small{display:none}
+}
+
+/* ---------- page + animation ---------- */
+.page{display:none}
+.page.show{display:block;animation:pageIn .8s var(--ease)}
+@keyframes pageIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes lineUp{to{transform:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes popIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+@keyframes fillIn{to{fill-opacity:1}}
+@keyframes tkIn{to{opacity:1}}
+@keyframes ripple{0%{transform:scale(.4);opacity:0}30%{opacity:.7}100%{transform:scale(1.5);opacity:0}}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@keyframes drift{0%{transform:translate(0,-12vh) rotate(0);opacity:0}8%{opacity:.8}50%{transform:translate(40px,48vh) rotate(160deg)}100%{transform:translate(-30px,108vh) rotate(330deg);opacity:0}}
+@keyframes unveil{from{clip-path:inset(0 0 100% 0);opacity:0}to{clip-path:inset(0);opacity:1}}
+@keyframes ring{0%{transform:scale(.9);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+.ln{display:block;overflow:hidden;padding-bottom:.12em}
+.ln>span{display:block;transform:translateY(115%);animation:lineUp 1.1s var(--ease) forwards;animation-delay:var(--d,0s)}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--rd,0s)}
+.rv.in{opacity:1;transform:none}
+.dr{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 3.2s var(--ease) forwards;animation-delay:var(--d,0s)}
+
+.eyebrow{display:flex;align-items:center;gap:1rem;color:var(--accent);font-size:.85rem;letter-spacing:.12em;margin-bottom:1.2rem}
+.eyebrow::after{content:"";height:1px;flex:1;background:var(--line);transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease) .2s}
+.eyebrow.in::after,.page.show .eyebrow.static::after{transform:scaleX(1)}
+section.blk{padding:clamp(3.5rem,8vw,7rem) 0}
+.pagehead{padding:clamp(3rem,7vw,6rem) 0 clamp(1rem,3vw,2rem)}
+.pagehead h1{font-size:clamp(2.2rem,5.6vw,4.6rem);font-weight:800;max-width:14em}
+.pagehead p.lead{margin-top:1.2rem;color:var(--muted);max-width:40em;font-size:clamp(1rem,1.3vw,1.2rem)}
+h2.sec{font-size:clamp(1.7rem,3.4vw,2.8rem);font-weight:800;margin-bottom:2rem;max-width:18em}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:2rem;min-height:min(86svh,860px);padding:2rem 0}
+.hero h1{font-size:clamp(2.6rem,7.4vw,6.4rem);font-weight:800;line-height:1.35}
+.hero h1 .ac{color:var(--accent)}
+.hero .sub{margin:1.6rem 0 2rem;max-width:30em;color:var(--muted);font-size:clamp(1rem,1.4vw,1.25rem);opacity:0;animation:pageIn 1s var(--ease) .9s forwards}
+.hero .acts{display:flex;flex-wrap:wrap;gap:1.8rem;align-items:center;opacity:0;animation:pageIn 1s var(--ease) 1.1s forwards}
+.art{position:relative;width:100%;max-width:640px;margin-inline:auto;aspect-ratio:1}
+.art svg{width:100%;height:100%;overflow:visible}
+.sun{transform-box:fill-box;transform-origin:center;animation:breathe 9s ease-in-out infinite}
+.rp{fill:none;stroke:var(--accent);stroke-width:1.2;transform-box:fill-box;transform-origin:center;animation:ripple 7s ease-out infinite;animation-delay:var(--d)}
+.vb{transform-box:view-box;transform-origin:300px 300px}
+.spA{animation:spin 140s linear infinite}
+.spB{animation:spin 110s linear infinite reverse}
+.spC{animation:spin 80s linear infinite}
+.pt{fill:var(--sun);fill-opacity:0;stroke-width:1.5;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s var(--ease) var(--d) forwards,fillIn 1.4s ease calc(var(--d) + 1.4s) forwards}
+.pt.o{stroke:var(--accent)}
+.pt.i{stroke:var(--ink);stroke-opacity:.7}
+.tk{opacity:0;animation:tkIn 2s ease 1.6s forwards}
+.tk line{stroke:var(--muted);stroke-opacity:.6;stroke-width:1.4}
+.dsh{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-dasharray:2 9;stroke-linecap:round}
+.rg{fill:none;stroke:var(--accent);stroke-width:1.2;stroke-opacity:.85}
+.chk{color:var(--accent)}
+@media(max-width:900px){.hero .grid{grid-template-columns:1fr;min-height:0;padding-top:1rem}.art{max-width:380px;order:-1}}
+
+/* ---------- facts / list ---------- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border-bottom:1px solid var(--line)}
+.fact{padding:2rem 1.4rem;border-left:1px solid var(--line)}
+.fact:first-child{border-left:0}
+.fact b{display:block;font-family:'Noto Serif Sinhala',serif;font-size:clamp(2.2rem,4.4vw,3.6rem);font-weight:800;line-height:1.3;color:var(--accent)}
+.fact span{color:var(--muted);font-size:.95rem}
+@media(max-width:620px){.fact:nth-child(odd){border-left:0}.fact{border-top:1px solid var(--line)}}
+.list{border-top:1px solid var(--line)}
+.li{display:grid;grid-template-columns:4.5rem 1fr 3rem;gap:1rem;align-items:center;padding:1.7rem .4rem;border-bottom:1px solid var(--line);position:relative;transition:padding .5s var(--ease),background-color .4s}
+.li::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transition:transform .5s var(--ease)}
+.li:hover{padding-left:1.4rem;background:var(--bg2)}
+.li:hover::before{transform:scaleY(1)}
+.li .n{font-family:'Noto Serif Sinhala',serif;color:var(--accent);font-size:1.1rem}
+.li h3{font-size:clamp(1.15rem,2vw,1.6rem)}
+.li p{color:var(--muted);max-width:42em}
+.li .ic{width:34px;height:34px;color:var(--accent);justify-self:end}
+@media(max-width:620px){.li{grid-template-columns:3rem 1fr}.li .ic{display:none}}
+.quoteband{position:relative;overflow:hidden;background:var(--bg2);border-block:1px solid var(--line);text-align:center;padding:clamp(4rem,10vw,8rem) 0}
+.quoteband blockquote{position:relative;font-family:'Noto Serif Sinhala',serif;font-size:clamp(1.6rem,4vw,3.2rem);font-weight:600;line-height:1.6;max-width:20em;margin-inline:auto}
+.quoteband cite{position:relative;display:block;margin-top:1.4rem;color:var(--muted);font-style:normal}
+.quoteband .bg{position:absolute;left:50%;top:50%;width:min(720px,110vw);color:var(--accent);opacity:.1;transform:translate(-50%,-50%);animation:spin 120s linear infinite}
+.headrow{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap}
+
+/* ---------- about ---------- */
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.two p{margin-bottom:1.3rem;color:var(--muted);font-size:clamp(1rem,1.2vw,1.15rem)}
+.two p:first-of-type{color:var(--ink);font-size:clamp(1.15rem,1.7vw,1.5rem);font-family:'Noto Serif Sinhala',serif;line-height:1.8}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
+.dagoba{width:100%;max-width:520px;margin-inline:auto;display:block}
+.dagoba *{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.dagoba .a{stroke:var(--accent)}
+.dagoba .dash{stroke-dasharray:3 9;animation:spin 80s linear infinite;transform-box:fill-box;transform-origin:center;stroke:var(--accent);animation-name:spin}
+.dagoba .ringp{stroke:var(--accent);stroke-width:1;transform-box:fill-box;transform-origin:center;animation:ring 6s ease-out infinite;animation-delay:var(--d)}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;border-top:1px solid var(--line)}
+.tr{padding:2.2rem 1.6rem 2.4rem 0;border-bottom:1px solid var(--line)}
+.tr .n{font-family:'Noto Serif Sinhala',serif;color:var(--accent);font-size:1.1rem}
+.tr h3{font-size:1.5rem;margin:.4rem 0 .6rem}
+.tr p{color:var(--muted)}
+
+/* ---------- staff ---------- */
+.staff{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:clamp(1.6rem,3vw,2.8rem) 1.8rem}
+.pr .ph{aspect-ratio:3/4;border-radius:999px 999px 0 0;overflow:hidden;background:var(--bg2);display:grid;place-items:end center;border:1px solid var(--line);border-bottom:0;position:relative}
+.pr .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.pr:hover .ph img{transform:scale(1.07)}
+.pr .ph svg{width:62%;fill:none;stroke:var(--muted);stroke-width:1.6;margin-bottom:-2px}
+.pr .cap{border-top:2px solid var(--accent);padding-top:.9rem;margin-top:0}
+.pr h3{font-size:1.12rem}
+.pr .role{display:block;color:var(--accent);font-size:.9rem;letter-spacing:.04em}
+.pr p{color:var(--muted);font-size:.9rem;margin-top:.3rem}
+
+/* ---------- gallery ---------- */
+.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:clamp(1.8rem,3vw,3rem) 2rem}
+.ev{display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;text-align:left;width:100%}
+.ev .cv{width:100%;flex:none;aspect-ratio:4/5;overflow:hidden;background:var(--bg2);position:relative;border:1px solid var(--line)}
+.ev .cv img,.phs{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s var(--ease)}
+.ev:hover .cv img{transform:scale(1.07)}
+.ev .cv::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.ev:hover .cv::after{transform:scaleX(1)}
+.ev .eb{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;padding-top:1rem;align-items:start}
+.ev .no{font-family:'Noto Serif Sinhala',serif;color:var(--accent);font-size:1.05rem;line-height:1.7}
+.ev h3{font-size:1.25rem;line-height:1.5}
+.ev .mt{color:var(--muted);font-size:.9rem;display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.2rem}
+.ev .mt span{display:inline-flex;align-items:center;gap:.4rem}
+.ev .mt .ic{width:1em;height:1em}
+.ev .mt+.mt{margin-top:0}
+.ev .go{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:background-color .4s,color .4s,border-color .4s}
+.ev:hover .go{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.ev .go .ic{transition:transform .5s var(--ease)}
+.ev:hover .go .ic{transform:translateX(3px)}
+.phs .b{fill:var(--bg2)}.phs .l{fill:none;stroke:var(--accent);stroke-width:1.4;opacity:.75}.phs text{fill:var(--muted);font-size:12px;font-family:sans-serif}
+.back{display:inline-flex;align-items:center;gap:.7rem;padding:.6rem 0;margin-top:2rem;color:var(--muted);transition:color .3s}
+.back:hover{color:var(--accent)}
+.back .ic{transition:transform .5s var(--ease)}.back:hover .ic{transform:translateX(-5px)}
+.ed{padding:2rem 0 2.5rem;border-bottom:1px solid var(--line);margin-bottom:2.5rem}
+.ed h1{font-size:clamp(2rem,5vw,4rem);font-weight:800;margin-bottom:1.6rem}
+.ed-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(1.5rem,5vw,4rem)}
+.ed-grid>p{color:var(--muted);font-size:clamp(1rem,1.25vw,1.15rem);max-width:36em}
+.ed dl{border-top:1px solid var(--line)}
+.ed dl>div{display:grid;grid-template-columns:8.5rem 1fr;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--line);align-items:start}
+.ed dt{display:flex;align-items:center;gap:.6rem;color:var(--accent);font-size:.9rem}
+.ed dd{font-weight:600}
+@media(max-width:900px){.ed-grid{grid-template-columns:1fr}}
+.mh{display:flex;align-items:center;gap:.8rem;font-size:1.35rem;margin:2.4rem 0 1.2rem}
+.mh .ic{color:var(--accent)}
+.mh small{color:var(--muted);font-family:'Noto Sans Sinhala',sans-serif;font-weight:400;font-size:.95rem}
+.media{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:1rem}
+.m{position:relative;display:block;width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--bg2);border:1px solid var(--line);padding:0;opacity:0;animation:unveil 1s var(--ease) forwards;animation-delay:var(--d)}
+.m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.m:hover img{transform:scale(1.09)}
+.m .pl{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.25)}
+.m .pl span{position:relative;width:60px;height:60px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;transition:transform .5s var(--ease)}
+.m .pl span::before{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--accent);animation:ring 2.6s ease-out infinite}
+.m:hover .pl span{transform:scale(1.14)}
+.m .pl .ic{width:24px;height:24px;fill:currentColor;stroke:none}
+.empty{padding:3rem 0;color:var(--muted)}
+
+/* ---------- lightbox ---------- */
+#lb{position:fixed;inset:0;z-index:100;background:rgba(10,8,6,.99);color:#f3ece0;display:none;flex-direction:column}
+#lb.show{display:flex;animation:pageIn .35s var(--ease)}
+.lb-top{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1rem;gap:.5rem}
+.lb-top .tl{display:flex;gap:.4rem}
+.ib{width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:grid;place-items:center;color:#f3ece0;transition:background-color .3s,color .3s,border-color .3s;flex:none}
+.ib:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.ib .ic{width:20px;height:20px}
+.stage{flex:1;position:relative;overflow:hidden;touch-action:none;display:grid;grid-template:minmax(0,1fr)/minmax(0,1fr);place-items:center;min-height:0}
+.stage img.zoomable{width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none;cursor:grab;transition:transform .15s ease-out;will-change:transform}
+.stage img.zoomable.drag{transition:none;cursor:grabbing}
+.nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(10,8,6,.5)}
+.nav.l{left:.8rem}.nav.r{right:.8rem}
+.cap{text-align:center;padding:.6rem;font-size:.9rem;opacity:.75}
+.vp{position:relative;width:min(1100px,94%);max-width:100%;max-height:100%;aspect-ratio:16/9;background:#000;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.12)}
+.vp:fullscreen{width:100%!important;height:100%!important;max-width:none;max-height:none;border:0}
+.vp video,.vp iframe{width:100%;height:100%;display:block;background:#000;border:0}
+.vp video{object-fit:contain}
+.vp .big{position:absolute;inset:0;display:grid;place-items:center}
+.vp .big span{width:88px;height:88px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;transition:opacity .4s,transform .4s var(--ease)}
+.vp .big .ic{width:34px;height:34px;fill:currentColor;stroke:none;margin-left:4px}
+.vp.playing .big span{opacity:0;transform:scale(1.5)}
+.vp .ctl{position:absolute;left:0;right:0;bottom:0;padding:2.6rem 1rem .6rem;background:linear-gradient(transparent,rgba(0,0,0,.88));transition:opacity .4s}
+.vp.playing.idle .ctl{opacity:0}.vp.playing.idle{cursor:none}
+.seek{display:block;width:100%;height:4px;appearance:none;-webkit-appearance:none;background:linear-gradient(90deg,var(--accent) var(--p,0%),rgba(255,255,255,.28) var(--p,0%));cursor:pointer;margin-bottom:.5rem;transition:height .2s}
+.seek:hover{height:7px}
+.seek::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--accent);border:0}
+.seek::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--accent);border:0}
+.row{display:flex;align-items:center;gap:.2rem}
+.row .ib{border:0;width:42px;height:42px}
+.row .time{font-size:.85rem;font-variant-numeric:tabular-nums;margin:0 .6rem;white-space:nowrap}
+.row .sp{flex:1}
+.vol{width:76px;height:3px;appearance:none;-webkit-appearance:none;background:rgba(255,255,255,.4)}
+.vol::-webkit-slider-thumb{-webkit-appearance:none;width:11px;height:11px;border-radius:50%;background:var(--accent)}
+.vol::-moz-range-thumb{width:11px;height:11px;border-radius:50%;background:var(--accent);border:0}
+.spd{border:1px solid rgba(255,255,255,.3);color:#f3ece0;border-radius:999px;padding:.1rem .8rem;font-size:.85rem;margin:0 .4rem}
+.spd:hover{background:var(--accent);color:var(--accent-ink)}
+.vp .ld{position:absolute;inset:0;display:none;place-items:center;pointer-events:none}
+.vp.wait .ld{display:grid}
+.vp .ld i{width:48px;height:48px;border:2px solid rgba(255,255,255,.2);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
+.vnote{position:absolute;left:0;right:0;bottom:.3rem;color:var(--accent);font-size:.85rem;text-align:center;padding:.3rem;pointer-events:none}
+@media(max-width:600px){.vol,.spd{display:none}.vp .ctl{padding:2rem .6rem .3rem}.row .time{margin:0 .2rem;font-size:.75rem}.row .ib{width:40px;height:40px}.vp .big span{width:68px;height:68px}.vp .big .ic{width:28px;height:28px}.lb-top{padding:.5rem .6rem}.ib{width:40px;height:40px}.nav.l{left:.3rem}.nav.r{right:.3rem}}
+@media(max-width:380px){.row .b10,.row .f10{display:none}}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);margin-top:clamp(2rem,5vw,4rem);padding:clamp(3rem,6vw,5rem) 0 2rem;position:relative;overflow:hidden}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+footer h3{font-size:1.2rem;margin-bottom:.8rem}
+footer p,footer li{color:var(--muted);list-style:none}
+footer a:hover{color:var(--accent)}
+footer .big{font-family:'Noto Serif Sinhala',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;line-height:1.5;color:var(--ink)}
+footer .copy{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media(max-width:800px){footer .cols{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.ln>span,.rv,.m,.lg,.hero .sub,.hero .acts{opacity:1!important;transform:none!important;clip-path:none!important}.dr,.pt{stroke-dashoffset:0!important}.pt{fill-opacity:1!important}.tk{opacity:1!important}}
+</style>
+</head>
+<body>
+
+<!-- ============ SVG symbol library (සියලු අයිකන SVG වේ) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="chakra" viewBox="0 0 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="36" stroke-width="1"/><circle cx="50" cy="50" r="7" fill="currentColor"/>
+        <g id="spk"><path d="M50 14V43"/><circle cx="50" cy="9" r="3"/></g>
+        <use href="#spk" transform="rotate(45 50 50)"/><use href="#spk" transform="rotate(90 50 50)"/><use href="#spk" transform="rotate(135 50 50)"/>
+        <use href="#spk" transform="rotate(180 50 50)"/><use href="#spk" transform="rotate(225 50 50)"/><use href="#spk" transform="rotate(270 50 50)"/><use href="#spk" transform="rotate(315 50 50)"/>
+      </g>
+    </symbol>
+    <!-- icons -->
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.2"/><path d="M8 20h8M12 16v4"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 4v4.5h4.5"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M20 12H4M10 6l-6 6 6 6"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="1.2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.2"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1.2"/><circle cx="9" cy="10" r="1.8"/><path d="M3 18l5-5 4 4 3-3 6 6"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="1.2"/><path d="M16 10l5-3v10l-5-3"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-replay" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 4v4.5h4.5"/></symbol>
+    <symbol id="i-back10" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 1 2.4 5.7M4 4.5V10h5.5"/><text x="12" y="15" font-size="7.5" text-anchor="middle" fill="currentColor" stroke="none" font-family="sans-serif">10</text></symbol>
+    <symbol id="i-fwd10" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 0-2.4 5.7M20 4.5V10h-5.5"/><text x="12" y="15" font-size="7.5" text-anchor="middle" fill="currentColor" stroke="none" font-family="sans-serif">10</text></symbol>
+    <symbol id="i-vol" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M18.6 6.4a8 8 0 0 1 0 11.2"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9.5l5 5M22 9.5l-5 5"/></symbol>
+    <symbol id="i-full" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+    <symbol id="i-exitfull" viewBox="0 0 24 24"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M3 5.5c3-1 6-.8 9 1.2 3-2 6-2.2 9-1.2V19c-3-1-6-.8-9 1.2-3-2-6-2.2-9-1.2z"/><path d="M12 6.7v13.5"/></symbol>
+    <symbol id="i-medit" viewBox="0 0 24 24"><circle cx="12" cy="6" r="2.2"/><path d="M12 9v4M6 17c2.5 0 4-1.5 6-4 2 2.5 3.5 4 6 4M4 20.5h16M8 17l-1 3.5M16 17l1 3.5"/></symbol>
+    <symbol id="i-lang" viewBox="0 0 24 24"><path d="M3 5h10M8 3v2M5 5c.5 4 3 7 6.5 8.5M11 5c-.8 3.5-3.5 6.8-8 8.5M14.5 21l4-10 4 10M16 17.5h5"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5s-8.5-5.2-8.5-11A4.7 4.7 0 0 1 12 7a4.7 4.7 0 0 1 8.5 2.5c0 5.8-8.5 11-8.5 11z"/></symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#home" aria-label="මුල් පිටුව">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#chakra"/></svg>
+      <span><b>ශ්‍රී බෝධිරාජ මහා පිරිවෙන</b><small>Sri Bodhiraja Maha Pirivena</small></span>
+    </a>
+    <div class="tools">
+      <nav id="nav" aria-label="ප්‍රධාන මෙනුව"><ul>
+        <li><a class="tab" href="#home" data-p="home">මුල් පිටුව</a></li>
+        <li><a class="tab" href="#about" data-p="about">අප ගැන</a></li>
+        <li><a class="tab" href="#staff" data-p="staff">කාර්ය මණ්ඩලය</a></li>
+        <li><a class="tab" href="#gallery" data-p="gallery">ගැලරිය</a></li>
+      </ul></nav>
+      <div class="theme" role="group" aria-label="තේමාව">
+        <span class="thumb"></span>
+        <button data-t="light" aria-pressed="false" title="ආලෝක" aria-label="ආලෝක තේමාව"><svg class="ic"><use href="#i-sun"/></svg></button>
+        <button data-t="dark" aria-pressed="false" title="අඳුරු" aria-label="අඳුරු තේමාව"><svg class="ic"><use href="#i-moon"/></svg></button>
+        <button data-t="system" aria-pressed="true" title="පද්ධතිය අනුව" aria-label="පද්ධති තේමාව"><svg class="ic"><use href="#i-monitor"/></svg></button>
+      </div>
+      <button class="burger" id="burger" aria-label="මෙනුව" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HOME ================= -->
+<div class="page" id="p-home">
+  <div class="hero">
+        <div class="wrap grid">
+      <div>
+        <p class="eyebrow static">බුද්ධ ශාසනයට කැපවූ පරිවේණික අධ්‍යාපනය</p>
+        <h1><span class="ln"><span style="--d:.15s">ශ්‍රී බෝධිරාජ</span></span><span class="ln"><span class="ac" style="--d:.3s">මහා පිරිවෙන</span></span></h1>
+        <p class="sub">ශීලය, සමාධිය සහ ප්‍රඥාව පෝෂණය කරමින් ශාසනයට සහ රටට සේවය කරන ශිෂ්‍ය භික්ෂූන්ගේ අධ්‍යාපන ආයතනය. ඔබ සැමට සාදරයෙන් පිළිගනිමු.</p>
+        <div class="acts">
+          <a class="btnl solid" href="#about">අප ගැන දැනගන්න <svg class="ic mv"><use href="#i-arrow-r"/></svg></a>
+          <a class="btnl ghost" href="#gallery">ගැලරිය බලන්න <svg class="ic mv"><use href="#i-arrow-r"/></svg></a>
+        </div>
+      </div>
+      <div class="art">
+        <svg viewBox="0 0 600 600" aria-hidden="true">
+          <g id="mandala"></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap facts">
+    <!-- ★ මෙම අගයන් ඔබේ සැබෑ දත්තවලින් වෙනස් කරන්න -->
+    <div class="fact rv"><b data-count="25">0</b><span>වසරක ශාසනික සේවය</span></div>
+    <div class="fact rv" style="--rd:.1s"><b data-count="12">0</b><span>ශිෂ්‍ය භික්ෂූන්</span></div>
+    <div class="fact rv" style="--rd:.2s"><b data-count="11">0</b><span>ආචාර්ය මණ්ඩලය</span></div>
+    <div class="fact rv" style="--rd:.3s"><b data-count="10">0</b><span>උත්සව හා වැඩසටහන්</span></div>
+  </div>
+
+  <section class="blk"><div class="wrap">
+    <p class="eyebrow rv">01 &nbsp; අපගේ අධ්‍යාපනය</p>
+    <h2 class="sec rv">ශාසනික හා ලෞකික දැනුම එක්වූ අධ්‍යාපනයක්</h2>
+    <div class="list">
+      <div class="li rv"><span class="n">01</span><div><h3>ධර්ම අධ්‍යාපනය</h3><p>ත්‍රිපිටකය හා බෞද්ධ දර්ශනය පිළිබඳ ගැඹුරු අධ්‍යයනය.</p></div><svg class="ic"><use href="#i-book"/></svg></div>
+      <div class="li rv"><span class="n">02</span><div><h3>භාවනා හා සීලය</h3><p>මානසික සංවර්ධනය සහ විනයානුකූල ජීවිතය.</p></div><svg class="ic"><use href="#i-medit"/></svg></div>
+      <div class="li rv"><span class="n">03</span><div><h3>භාෂා අධ්‍යාපනය</h3><p>පාලි, සංස්කෘත සහ සිංහල භාෂා අධ්‍යයනය.</p></div><svg class="ic"><use href="#i-lang"/></svg></div>
+      <div class="li rv"><span class="n">04</span><div><h3>සමාජ සේවය</h3><p>පන්සල් හා ගම්මාන සමග බැඳුණු ධර්ම සේවාවන්.</p></div><svg class="ic"><use href="#i-heart"/></svg></div>
+    </div>
+  </div></section>
+
+  <div class="quoteband">
+    <svg class="bg" viewBox="0 0 100 100" aria-hidden="true"><use href="#chakra"/></svg>
+    <div class="wrap rv">
+      <blockquote>සබ්බ දානං ධම්ම දානං ජිනාති</blockquote>
+      <cite>සියලු දානයන් අතර ධර්ම දානය උතුම්ය</cite>
+    </div>
+  </div>
+
+  <section class="blk"><div class="wrap">
+    <div class="headrow">
+      <div><p class="eyebrow rv">02 &nbsp; මෑත උත්සව</p><h2 class="sec rv" style="margin-bottom:1.5rem">අපගේ උත්සව හා වැඩසටහන්</h2></div>
+      <a class="btnl ghost rv" href="#gallery">සියල්ල බලන්න <svg class="ic mv"><use href="#i-arrow-r"/></svg></a>
+    </div>
+    <div class="events" id="homeEvents"></div>
+  </div></section>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="page" id="p-about">
+  <div class="wrap pagehead">
+    <p class="eyebrow static">අප ගැන</p>
+    <h1><span class="ln"><span style="--d:.1s">ශීලයෙන් ප්‍රඥාව දක්වා</span></span><span class="ln"><span style="--d:.25s">අපගේ ගමන</span></span></h1>
+  </div>
+  <section class="blk" style="padding-top:2rem"><div class="wrap two">
+    <div class="rv">
+      <!-- ★ මෙම කොටස ඔබේ පිරිවෙනේ සැබෑ ඉතිහාසයෙන් වෙනස් කරන්න -->
+      <p>ශ්‍රී බෝධිරාජ මහා පිරිවෙන යනු බුද්ධ ශාසනයේ චිරස්ථිතිය උදෙසා සහ ශිෂ්‍ය භික්ෂූන් වහන්සේලාගේ අධ්‍යාපනික හා අධ්‍යාත්මික සංවර්ධනය උදෙසා පිහිටුවා ඇති පරිවේණික අධ්‍යාපන ආයතනයකි.</p>
+      <p>අපගේ පිරිවෙන ශීලයෙන්, සමාධියෙන් සහ ප්‍රඥාවෙන් පරිපූර්ණ ශාසන උරුමක්කාරයන් බිහි කිරීම අරමුණු කරගෙන ක්‍රියාත්මක වේ.</p>
+      <p>ධර්ම විනය පිළිබඳ ගැඹුරු අධ්‍යයනය සමඟ සමාජයට සේවය කිරීමේ හැකියාව ද වර්ධනය කිරීම අපගේ කැපවීමයි.</p>
+    </div>
+    <div class="rv">
+      <svg class="dagoba" viewBox="0 0 480 420" aria-hidden="true">
+        <circle class="dash" cx="240" cy="230" r="172"/>
+        <circle class="ringp" cx="240" cy="262" r="60" style="--d:0s"/>
+        <circle class="ringp" cx="240" cy="262" r="60" style="--d:2s"/>
+        <circle class="ringp" cx="240" cy="262" r="60" style="--d:4s"/>
+        <path class="dr" d="M20 380H460"/>
+        <rect class="dr" style="--d:.2s" x="110" y="350" width="260" height="30"/>
+        <rect class="dr" style="--d:.4s" x="135" y="322" width="210" height="28"/>
+        <rect class="dr" style="--d:.6s" x="160" y="296" width="160" height="26"/>
+        <path class="dr" style="--d:.9s" d="M170 296A70 70 0 0 1 310 296"/>
+        <rect class="dr" style="--d:1.4s" x="222" y="198" width="36" height="28"/>
+        <rect class="dr" style="--d:1.6s" x="228" y="186" width="24" height="12"/>
+        <rect class="dr" style="--d:1.8s" x="231" y="176" width="18" height="10"/>
+        <rect class="dr" style="--d:2s" x="234" y="166" width="12" height="10"/>
+        <path class="dr a" style="--d:2.2s" d="M240 166V130"/><circle class="a" cx="240" cy="124" r="5"/>
+        <g style="color:var(--accent);animation:spin 70s linear infinite;transform-box:fill-box;transform-origin:center"><use href="#chakra" x="214" y="238" width="52" height="52" style="stroke:var(--accent)"/></g>
+      </svg>
+    </div>
+  </div></section>
+  <section class="blk" style="padding-top:0"><div class="wrap">
+    <p class="eyebrow rv">දැක්ම, මෙහෙවර, වටිනාකම්</p>
+    <div class="trio">
+      <div class="tr rv"><span class="n">01</span><h3>දැක්ම</h3><p>ශාසනික හා සමාජීය වශයෙන් ශක්තිමත් භික්ෂු පරපුරක් බිහි කිරීම.</p></div>
+      <div class="tr rv" style="--rd:.12s"><span class="n">02</span><h3>මෙහෙවර</h3><p>උසස් පරිවේණික අධ්‍යාපනය සහ ධර්ම සේවාව ලබා දීම.</p></div>
+      <div class="tr rv" style="--rd:.24s"><span class="n">03</span><h3>වටිනාකම්</h3><p>ශීලය, විනය, කරුණාව, නිහතමානිකම සහ කැපවීම.</p></div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ================= STAFF ================= -->
+<div class="page" id="p-staff">
+  <div class="wrap pagehead">
+    <p class="eyebrow static">කාර්ය මණ්ඩලය</p>
+    <h1><span class="ln"><span style="--d:.1s">අපගේ ආචාර්ය</span></span><span class="ln"><span style="--d:.25s">හා කාර්ය මණ්ඩලය</span></span></h1>
+  </div>
+  <section class="blk" style="padding-top:2rem"><div class="wrap"><div class="staff" id="staffGrid"></div></div></section>
+</div>
+
+<!-- ================= GALLERY ================= -->
+<div class="page" id="p-gallery">
+  <div class="wrap">
+    <div id="galList">
+      <div class="pagehead">
+        <p class="eyebrow static">ගැලරිය</p>
+        <h1><span class="ln"><span style="--d:.1s">උත්සව හා</span></span><span class="ln"><span style="--d:.25s">මතක සටහන්</span></span></h1>
+        <p class="lead">උත්සවයක් තෝරා එහි ඡායාරූප හා වීඩියෝ නරඹන්න.</p>
+      </div>
+      <section class="blk" style="padding-top:2rem"><div class="events" id="eventsGrid"></div></section>
+    </div>
+    <div id="galDetail" hidden></div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><p class="big">ශීලය<br>සමාධිය<br>ප්‍රඥාව</p></div>
+      <div><h3>සම්බන්ධ වන්න</h3><ul><li>ලිපිනය: </li><li>දුරකථන: (මෙහි ඇතුළත් කරන්න)</li><li>ඊමේල්: (මෙහි ඇතුළත් කරන්න)</li></ul></div>
+      <div><h3>පිටු</h3><ul><li><a href="#home">මුල් පිටුව</a></li><li><a href="#about">අප ගැන</a></li><li><a href="#staff">කාර්ය මණ්ඩලය</a></li><li><a href="#gallery">ගැලරිය</a></li></ul></div>
+    </div>
+    <p class="copy">&copy; <span id="yr"></span> ශ්‍රී බෝධිරාජ මහා පිරිවෙන. සියලු හිමිකම් ඇවිරිණි.</p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lb" role="dialog" aria-modal="true" aria-label="මාධ්‍ය නරඹන්න">
+  <div class="lb-top">
+    <div id="lbCount"></div>
+    <div class="tl" id="lbTools">
+      <button class="ib" id="zin" title="විශාල කරන්න" aria-label="විශාල කරන්න"><svg class="ic"><use href="#i-plus"/></svg></button>
+      <button class="ib" id="zout" title="කුඩා කරන්න" aria-label="කුඩා කරන්න"><svg class="ic"><use href="#i-minus"/></svg></button>
+      <button class="ib" id="zreset" title="යළි සකසන්න" aria-label="යළි සකසන්න"><svg class="ic"><use href="#i-reset"/></svg></button>
+      <button class="ib" id="lbClose" title="වසන්න" aria-label="වසන්න"><svg class="ic"><use href="#i-close"/></svg></button>
+    </div>
+  </div>
+  <div class="stage" id="stage">
+    <button class="ib nav l" id="prev" aria-label="පෙර"><svg class="ic"><use href="#i-prev"/></svg></button>
+    <button class="ib nav r" id="next" aria-label="ඊළඟ"><svg class="ic"><use href="#i-next"/></svg></button>
+  </div>
+  <div class="cap" id="lbCap"></div>
+</div>
+
+<script>
+/* =====================================================================
+   අන්තර්ගතය එකතු කිරීම (CONTENT) — මෙතැනින් පමණක් වෙනස් කරන්න
+
+   Google Drive file එක → Share → "Anyone with the link" (Viewer) → Copy link
+   → පහත "images" / "videos" ලැයිස්තුවට ඒ link එක paste කරන්න.
+   (සම්පූර්ණ link එක හෝ File ID එක පමණක් වුවත් කමක් නැත.)
+
+   අලුත් උත්සවයක්: EVENTS ලැයිස්තුවේ { ... } කොටසක් copy කර paste කරන්න.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   වීඩියෝ අපේ player එකේම play කිරීමට (Drive player එක නැතිව):
+   Google Drive API key එකක් මෙතැන paste කරන්න. (නොමිලේ - පහත පියවර බලන්න)
+   1. console.cloud.google.com → Project එකක් හදන්න
+   2. "APIs & Services" → Library → "Google Drive API" → Enable
+   3. Credentials → Create credentials → API key
+   4. එම key එකේ "API restrictions" → Google Drive API පමණක් තෝරන්න
+   5. Website publish කළ පසු "Website restrictions" වලට ඔබේ website link එක දාන්න
+   6. Key එක පහත "" අතරට paste කරන්න
+   වීඩියෝ file එක: Share → "Anyone with the link" සහ format එක MP4 (H.264) විය යුතුයි.
+   --------------------------------------------------------------------- */
+const DRIVE_API_KEY = "AIzaSyBBB6SVH0aYVc0xnbAVNwcivytxG50QfYw";
+
+const EVENTS = [
+  {
+    title: "කඨින පිංකම",
+    date: "2025 නොවැම්බර් 10",
+    place: "ශ්‍රී බෝධිරාජ මහා පිරිවෙන, (ස්ථානය)",
+    type: "ආගමික උත්සවය",
+    about: "වාර්ෂික කඨින චීවර පූජා උත්සවය භක්තිමත් දායක පිරිස් සහභාගීත්වයෙන් පැවැත්විණි.",
+    cover: "https://drive.google.com/file/d/1lM8om2P2UTNbUdL-t1U2F1FP9aAtLLjc/view?usp=sharing",
+    images: ["https://drive.google.com/file/d/1lM8om2P2UTNbUdL-t1U2F1FP9aAtLLjc/view?usp=sharing","https://drive.google.com/file/d/1Hbv_fS7qeU1kxlNbOFj1zvjPXlaULo8n/view?usp=drive_link","https://drive.google.com/file/d/1o2lwd48I6ghdj0ptNAHBsoXLUWE2M_gQ/view?usp=drive_link"],
+    videos: ["https://drive.google.com/file/d/1avhyQxtajv58b-vnSmsp4kN0hgcxESLR/view?usp=drive_link"]
+  },
+  {
+    title: "වෙසක් උත්සවය",
+    date: "2025 මැයි 12",
+    place: "පිරිවෙන් භූමිය",
+    type: "වෙසක් අලංකරණ හා දන්සල්",
+    about: "වෙසක් පොහොය නිමිත්තෙන් පැවැත්වූ වෙසක් කූඩු, තොරණ හා දන්සල් උත්සවය.",
+    cover: "PASTE_COVER_IMAGE_LINK",
+    images: ["PASTE_IMAGE_LINK_1","PASTE_IMAGE_LINK_2"],
+    videos: []
+  },
+  {
+    title: "ශ්‍රී බෝධිරාජ මහා පිරිවෙන අවට පෙදෙස",
+    date: "2025 දෙසැම්බර් 20",
+    place: "",
+    type: "",
+    about: "ශ්‍රී බෝධිරාජ මහා පිරිවෙන අවට පෙදෙසෙහි Photos සහ Videos",
+    cover: "https://drive.google.com/file/d/1qtK1s-aTEqScSJM5DqYH45eB1H5ZchJn/view?usp=sharing",
+    images: ["https://drive.google.com/file/d/1qtK1s-aTEqScSJM5DqYH45eB1H5ZchJn/view?usp=sharing","https://drive.google.com/file/d/1o0-km40NkpopY6dCv_GkQxLRTSPh86WW/view?usp=drive_link","https://drive.google.com/file/d/1bGsGOpABO6ZEsc2hKweMsperooYiERd9/view?usp=drive_link","https://drive.google.com/file/d/1UgiuTz-F_vYiOI8NAQR0NiRDyuPrb6UE/view?usp=drive_link","https://drive.google.com/file/d/1PpjjgD9A0zMiznCBNuIuowq-8stUKLS1/view?usp=drive_link","https://drive.google.com/file/d/1eQGMcflAy0hsBJ4AWFXwhurB3nL4xH5u/view?usp=drive_link","https://drive.google.com/file/d/1wKKDRYPaRgnPvSP3_ij1rkHxqo0TL7XG/view?usp=drive_link"],
+    videos: ["https://drive.google.com/file/d/17SjlRLk8Y235u1O93G7a7ZZw1a942I5Q/view?usp=drive_link"]
+  }
+];
+
+const STAFF = [
+  { name: "ශාස්ත්‍රපති ... ස්වාමීන් වහන්සේ", role: "පිරිවෙනාධිපති", note: "", photo: "PASTE_PHOTO_LINK" },
+  { name: "... ස්වාමීන් වහන්සේ",            role: "උපාධිපති",      note: "", photo: "PASTE_PHOTO_LINK" },
+  { name: "... ස්වාමීන් වහන්සේ",            role: "ආචාර්ය මණ්ඩලය", note: "පාලි භාෂා ඉගැන්වීම", photo: "PASTE_PHOTO_LINK" },
+  { name: "... මහතා",                       role: "ලිපිකරු",       note: "", photo: "PASTE_PHOTO_LINK" }
+];
+
+/* ============================ ඉහළ කොටස පමණක් ඔබට වෙනස් කළ හැක ============================ */
+
+/* ---------- helpers ---------- */
+const $ = (s,r=document)=>r.querySelector(s);
+const esc = t => String(t||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ic = (n,c='')=>`<svg class="ic ${c}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+const pad = n => String(n+1).padStart(2,'0');
+const isPH = s => !s || /PASTE|^\s*$/i.test(s);
+function driveId(s){
+  if(isPH(s)) return null;
+  s=String(s).trim();
+  const m=s.match(/\/d\/([-\w]{10,})/)||s.match(/[?&]id=([-\w]{10,})/);
+  return m?m[1]:(/^[-\w]{10,}$/.test(s)?s:null);
+}
+const imgUrl = (id,w=1600)=>`https://drive.google.com/thumbnail?id=${id}&sz=w${w}`;
+const vidUrl = id=>`https://drive.usercontent.google.com/download?id=${id}&export=download&confirm=t`;
+const prevUrl = id=>`https://drive.google.com/file/d/${id}/preview`;
+
+function placeholderSVG(label){
+  return `<svg class="phs" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect class="b" width="400" height="300"/>
+  <g transform="translate(200 125)"><circle class="l" r="48"/><circle class="l" r="36" style="opacity:.5"/><circle r="6" fill="var(--accent)"/>${[0,45,90,135].map(a=>`<path class="l" d="M0-48V48" transform="rotate(${a})"/>`).join('')}</g>
+  <text x="200" y="232" text-anchor="middle">${esc(label||'Drive link එක ඇතුළත් කරන්න')}</text></svg>`;
+}
+window.__ph = placeholderSVG;
+function imgTag(src,label,alt){
+  const id=driveId(src);
+  if(!id) return placeholderSVG(label);
+  return `<img loading="lazy" src="${imgUrl(id,800)}" alt="${esc(alt)}" referrerpolicy="no-referrer" onerror="this.outerHTML=window.__ph('රූපය පූරණය නොවීය')">`;
+}
+
+/* ---------- theme (light / dark / system) ---------- */
+const KEY='sbmp-theme', mq=matchMedia('(prefers-color-scheme: dark)');
+const getPref=()=>{try{return localStorage.getItem(KEY)||'system'}catch(e){return 'system'}};
+function applyTheme(pref){
+  const mode=pref==='system'?(mq.matches?'dark':'light'):pref;
+  const h=document.documentElement; h.dataset.mode=mode; h.dataset.pref=pref;
+  document.querySelectorAll('.theme button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===pref));
+  $('#metaTheme').setAttribute('content',mode==='dark'?'#13100d':'#f5efe3');
+}
+document.querySelectorAll('.theme button').forEach(b=>b.onclick=()=>{ try{localStorage.setItem(KEY,b.dataset.t)}catch(e){} applyTheme(b.dataset.t); });
+(mq.addEventListener?mq.addEventListener.bind(mq,'change'):mq.addListener.bind(mq))(()=>{ if(getPref()==='system') applyTheme('system'); });
+applyTheme(getPref());
+
+/* ---------- routing ---------- */
+const pages=['home','about','staff','gallery']; let pending=null;
+function route(){
+  let h=(location.hash||'#home').slice(1); if(!pages.includes(h)) h='home';
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('show',p.id==='p-'+h));
+  document.querySelectorAll('a.tab').forEach(a=>a.classList.toggle('active',a.dataset.p===h));
+  closeMenu();
+  if(h==='gallery'){ if(pending!==null){const i=pending;pending=null;openEvent(i);} else showList(); }
+  window.scrollTo({top:0});
+  setTimeout(observe,60);
+}
+window.addEventListener('hashchange',route);
+function goEvent(i){ pending=i; if(location.hash==='#gallery') route(); else location.hash='#gallery'; }
+const nav=$('#nav'), burger=$('#burger');
+function closeMenu(){ nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); burger.innerHTML=ic('menu'); }
+burger.onclick=()=>{ const o=nav.classList.toggle('open'); burger.setAttribute('aria-expanded',o); burger.innerHTML=ic(o?'close':'menu'); };
+
+/* reveal + counters */
+let io;
+function observe(){
+  const els=document.querySelectorAll('.page.show .rv:not(.in)');
+  if(!('IntersectionObserver' in window)){ els.forEach(e=>e.classList.add('in')); return; }
+  if(!io) io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    e.target.classList.add('in');
+    const c=e.target.querySelector('[data-count]');
+    if(c&&!c.dataset.done){ c.dataset.done=1; const to=+c.dataset.count; let n=0; const st=Math.max(1,Math.ceil(to/50));
+      const t=setInterval(()=>{n=Math.min(to,n+st);c.textContent=n;if(n>=to)clearInterval(t)},30); }
+    io.unobserve(e.target);
+  }),{threshold:.12});
+  els.forEach(el=>io.observe(el));
+}
+
+/* ---------- hero: lotus mandala ---------- */
+(function(){
+  const C=300; let o='';
+  o+='<circle class="sun" cx="300" cy="300" r="215" fill="var(--sun)"/>';
+  [0,2.3,4.6].forEach(d=>{o+=`<circle class="rp" cx="300" cy="300" r="215" style="--d:${d}s"/>`;});
+  let tk='';
+  for(let i=0;i<72;i++){
+    const a=i*5*Math.PI/180, r1=i%6===0?274:280, r2=290;
+    tk+=`<line x1="${(C+Math.cos(a)*r1).toFixed(1)}" y1="${(C+Math.sin(a)*r1).toFixed(1)}" x2="${(C+Math.cos(a)*r2).toFixed(1)}" y2="${(C+Math.sin(a)*r2).toFixed(1)}"/>`;
+  }
+  o+=`<g class="vb spB"><g class="tk">${tk}</g></g>`;
+  let po='';
+  for(let i=0;i<16;i++) po+=`<path class="pt o" pathLength="1" style="--d:${(.2+i*.07).toFixed(2)}s" transform="rotate(${i*22.5})" d="M0 -160C40 -192 40 -238 0 -266C-40 -238 -40 -192 0 -160Z"/>`;
+  o+=`<g class="vb spA"><g transform="translate(300 300)">${po}</g></g>`;
+  let pi='';
+  for(let i=0;i<8;i++) pi+=`<path class="pt i" pathLength="1" style="--d:${(1+i*.1).toFixed(2)}s" transform="rotate(${i*45+22.5})" d="M0 -80C26 -104 26 -138 0 -162C-26 -138 -26 -104 0 -80Z"/>`;
+  o+=`<g class="vb spB"><g transform="translate(300 300)">${pi}</g></g>`;
+  o+='<circle class="dsh vb spC" cx="300" cy="300" r="170"/>';
+  o+='<circle class="rg" cx="300" cy="300" r="74"/><circle class="rg" cx="300" cy="300" r="66" style="stroke-opacity:.4"/>';
+  o+='<g class="chk vb spC"><use href="#chakra" x="238" y="238" width="124" height="124"/></g>';
+  $('#mandala').innerHTML=o;
+})();
+
+/* ---------- gallery cards ---------- */
+function evCard(e,i){
+  const n=(e.images||[]).length, v=(e.videos||[]).length;
+  return `<button class="ev rv" data-i="${i}" style="--rd:${(i%3)*.1}s">
+    <div class="cv">${imgTag(e.cover||(e.images||[])[0],e.title,e.title)}</div>
+    <div class="eb"><span class="no">${pad(i)}</span>
+      <div><h3>${esc(e.title)}</h3><div class="mt"><span>${ic('cal')}${esc(e.date)}</span></div><div class="mt"><span>${ic('image')}${n}</span><span>${ic('video')}${v}</span></div></div>
+      <span class="go">${ic('arrow-r')}</span></div></button>`;
+}
+function bindCards(root){ root.querySelectorAll('.ev').forEach(b=>b.onclick=()=>goEvent(+b.dataset.i)); }
+$('#homeEvents').innerHTML=EVENTS.slice(0,3).map(evCard).join(''); bindCards($('#homeEvents'));
+
+/* ---------- staff ---------- */
+$('#staffGrid').innerHTML=STAFF.map((s,i)=>{
+  const id=driveId(s.photo);
+  const ph=id?`<img loading="lazy" src="${imgUrl(id,700)}" alt="${esc(s.name)}" referrerpolicy="no-referrer">`
+    :`<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="36" r="17"/><path d="M14 100c3-28 20-38 36-38s33 10 36 38"/></svg>`;
+  return `<div class="pr rv" style="--rd:${(i%4)*.1}s"><div class="ph">${ph}</div><div class="cap"><h3>${esc(s.name)}</h3><span class="role">${esc(s.role)}</span>${s.note?`<p>${esc(s.note)}</p>`:''}</div></div>`;
+}).join('');
+
+/* ---------- gallery list / detail ---------- */
+function showList(){
+  $('#galList').hidden=false; $('#galDetail').hidden=true;
+  const g=$('#eventsGrid');
+  g.innerHTML=EVENTS.map(evCard).join('')||'<p class="empty">උත්සව තවම එකතු කර නැත.</p>';
+  bindCards(g); setTimeout(observe,30);
+}
+let curItems=[],curIdx=0;
+function openEvent(i){
+  const e=EVENTS[i]; if(!e){showList();return;}
+  $('#galList').hidden=true;
+  const d=$('#galDetail'); d.hidden=false;
+  const imgs=(e.images||[]).map(s=>({type:'image',src:s}));
+  const vids=(e.videos||[]).map(s=>({type:'video',src:s}));
+  curItems=[...imgs,...vids];
+  const tile=(it,k)=>{
+    const id=driveId(it.src);
+    const th=id?`<img loading="lazy" src="${imgUrl(id,700)}" alt="${esc(e.title)}" referrerpolicy="no-referrer" onerror="this.outerHTML=window.__ph('පූරණය නොවීය')">`
+      :placeholderSVG(it.type==='video'?'වීඩියෝ link එක ඇතුළත් කරන්න':'ඡායාරූප link එක ඇතුළත් කරන්න');
+    return `<button class="m" style="--d:${(Math.min(k,24)*.07).toFixed(2)}s" data-k="${k}" aria-label="${it.type==='video'?'වීඩියෝව':'රූපය'} විවෘත කරන්න">${th}${it.type==='video'?`<span class="pl"><span>${ic('play')}</span></span>`:''}</button>`;
+  };
+  d.innerHTML=`
+    <button class="back" id="backBtn">${ic('arrow-l')} ගැලරියට ආපසු</button>
+    <div class="ed">
+      <p class="eyebrow static">උත්සවය ${pad(i)}</p>
+      <h1><span class="ln"><span style="--d:.1s">${esc(e.title)}</span></span></h1>
+      <div class="ed-grid">
+        <p>${esc(e.about)}</p>
+        <dl>
+          <div><dt>${ic('cal')}දිනය</dt><dd>${esc(e.date)}</dd></div>
+          <div><dt>${ic('pin')}ස්ථානය</dt><dd>${esc(e.place)}</dd></div>
+          <div><dt>${ic('tag')}වර්ගය</dt><dd>${esc(e.type)}</dd></div>
+        </dl>
+      </div>
+    </div>
+    ${imgs.length?`<h3 class="mh">${ic('image')}ඡායාරූප <small>${imgs.length}</small></h3><div class="media">${imgs.map((it,k)=>tile(it,k)).join('')}</div>`:''}
+    ${vids.length?`<h3 class="mh">${ic('video')}වීඩියෝ <small>${vids.length}</small></h3><div class="media">${vids.map((it,k)=>tile(it,imgs.length+k)).join('')}</div>`:''}
+    ${!curItems.length?'<p class="empty">මෙම උත්සවයට තවම ඡායාරූප හෝ වීඩියෝ එකතු කර නැත.</p>':''}`;
+  $('#backBtn').onclick=()=>{ showList(); window.scrollTo({top:0}); };
+  d.querySelectorAll('.m').forEach(b=>b.onclick=()=>openLB(+b.dataset.k));
+  window.scrollTo({top:0});
+}
+
+/* ---------- lightbox ---------- */
+const lb=$('#lb'), stage=$('#stage');
+let z={s:1,x:0,y:0}, imgEl=null, ptrs=new Map(), pinch0=0, s0=1, swipeX=0;
+function clearStage(){
+  stage.querySelectorAll('.zoomable,.vp,.vnote,.phbox').forEach(n=>{const v=n.querySelector&&n.querySelector('video');if(v){v.pause();v.removeAttribute('src');v.load();}n.remove();});
+  imgEl=null; z={s:1,x:0,y:0}; stage.onwheel=null; window.__fit=null;
+}
+function openLB(k){ curIdx=k; lb.classList.add('show'); document.body.style.overflow='hidden'; renderLB(); }
+function closeLB(){ clearStage(); lb.classList.remove('show'); document.body.style.overflow=''; if(document.fullscreenElement) document.exitFullscreen(); }
+function renderLB(){
+  clearStage();
+  const it=curItems[curIdx]; if(!it) return;
+  $('#lbCount').textContent=`${curIdx+1} / ${curItems.length}`;
+  $('#lbCap').textContent=it.type==='video'?'වීඩියෝව':'ඡායාරූපය';
+  ['zin','zout','zreset'].forEach(id=>$('#'+id).style.display=it.type==='image'?'':'none');
+  $('#prev').style.display=$('#next').style.display=curItems.length>1?'':'none';
+  const id=driveId(it.src);
+  if(!id){const d=document.createElement('div');d.className='phbox';d.style.cssText='width:min(520px,90%);position:relative;aspect-ratio:4/3;overflow:hidden';d.innerHTML=placeholderSVG('Drive link එක ඇතුළත් කළ පසු මෙහි පෙනේ');stage.appendChild(d);return;}
+  if(it.type==='image'){
+    const im=new Image(); im.className='zoomable'; im.referrerPolicy='no-referrer'; im.alt=''; im.draggable=false;
+    im.dataset.id=id; im.src=imgUrl(id,2000); im.onerror=()=>{im.onerror=null;im.src=imgUrl(id,1000)};
+    stage.appendChild(im); imgEl=im; bindZoom(im);
+  } else buildPlayer(id);
+}
+function applyZ(){ if(imgEl) imgEl.style.transform=`translate(${z.x}px,${z.y}px) scale(${z.s})`; }
+function setScale(s){
+  z.s=Math.min(6,Math.max(1,s)); if(z.s===1){z.x=z.y=0;} applyZ();
+  // විශාල කරන විට වඩා high-resolution රූපය පූරණය කරයි
+  if(z.s>1.5&&imgEl&&!imgEl.dataset.hi&&imgEl.dataset.id){
+    imgEl.dataset.hi=1; const el=imgEl, h=new Image(); h.referrerPolicy='no-referrer';
+    h.onload=()=>{ if(imgEl===el) el.src=h.src; }; h.src=imgUrl(el.dataset.id,3600);
+  }
+}
+$('#zin').onclick=()=>setScale(z.s*1.4); $('#zout').onclick=()=>setScale(z.s/1.4); $('#zreset').onclick=()=>setScale(1);
+function bindZoom(im){
+  im.addEventListener('dblclick',()=>setScale(z.s>1?1:2.5));
+  stage.onwheel=e=>{ if(!imgEl) return; e.preventDefault(); setScale(z.s*(e.deltaY<0?1.15:1/1.15)); };
+  im.addEventListener('pointerdown',e=>{ swipeX=e.clientX; im.setPointerCapture(e.pointerId); ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY}); im.classList.add('drag');
+    if(ptrs.size===2){const [a,b]=[...ptrs.values()];pinch0=Math.hypot(a.x-b.x,a.y-b.y);s0=z.s;} });
+  im.addEventListener('pointermove',e=>{
+    if(!ptrs.has(e.pointerId)) return;
+    const pv=ptrs.get(e.pointerId); ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(ptrs.size===2){const [a,b]=[...ptrs.values()];setScale(s0*Math.hypot(a.x-b.x,a.y-b.y)/pinch0);}
+    else if(z.s>1){z.x+=e.clientX-pv.x;z.y+=e.clientY-pv.y;applyZ();}
+  });
+  im.addEventListener('pointerup',e=>{ const had=ptrs.get(e.pointerId); ptrs.delete(e.pointerId); im.classList.remove('drag');
+    if(had&&z.s===1&&ptrs.size===0){const dx=e.clientX-swipeX; if(Math.abs(dx)>70) go(dx<0?1:-1);} });
+  im.addEventListener('pointercancel',e=>{ptrs.delete(e.pointerId);im.classList.remove('drag')});
+}
+function go(d){ if(curItems.length<2) return; curIdx=(curIdx+d+curItems.length)%curItems.length; renderLB(); }
+$('#prev').onclick=()=>go(-1); $('#next').onclick=()=>go(1); $('#lbClose').onclick=closeLB;
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('show')) return;
+  if(e.key==='Escape') closeLB();
+  else if(e.key==='ArrowRight') go(1);
+  else if(e.key==='ArrowLeft') go(-1);
+  else if(e.key==='+'||e.key==='=') setScale(z.s*1.3);
+  else if(e.key==='-') setScale(z.s/1.3);
+  else if(e.key===' '&&stage.querySelector('video')){e.preventDefault();const v=stage.querySelector('video');v.paused?v.play():v.pause();}
+});
+
+/* ---------- custom video player ---------- */
+const fmt=t=>{if(!isFinite(t))return '0:00';const m=Math.floor(t/60),s=Math.floor(t%60);return `${m}:${String(s).padStart(2,'0')}`};
+function vidSources(id){
+  const a=[];
+  const k=(typeof DRIVE_API_KEY==='string')?DRIVE_API_KEY.trim():'';
+  if(k) a.push(`https://www.googleapis.com/drive/v3/files/${id}?alt=media&key=${encodeURIComponent(k)}`);
+  a.push(vidUrl(id));
+  a.push(`https://drive.google.com/uc?export=download&id=${id}`);
+  return a;
+}
+window.addEventListener('resize',()=>{ if(window.__fit) window.__fit(); });
+function buildPlayer(id){
+  const box=document.createElement('div'); box.className='vp wait';
+  box.innerHTML=`
+    <video playsinline preload="metadata" controlsList="nodownload noplaybackrate" disablePictureInPicture oncontextmenu="return false" poster="${imgUrl(id,1280)}"></video>
+    <div class="ld"><i></i></div>
+    <button class="big" aria-label="Play"><span>${ic('play')}</span></button>
+    <div class="ctl">
+      <input class="seek" type="range" min="0" max="1000" value="0" aria-label="Seek">
+      <div class="row">
+        <button class="ib pp" aria-label="Play / Pause">${ic('play')}</button>
+        <button class="ib b10" aria-label="තත්පර 10 ආපසු">${ic('back10')}</button>
+        <button class="ib f10" aria-label="තත්පර 10 ඉදිරියට">${ic('fwd10')}</button>
+        <span class="time">0:00 / 0:00</span><span class="sp"></span>
+        <button class="ib mute" aria-label="Mute">${ic('vol')}</button>
+        <input class="vol" type="range" min="0" max="1" step=".05" value="1" aria-label="Volume">
+        <button class="spd">1x</button>
+        <button class="ib fs" aria-label="Fullscreen">${ic('full')}</button>
+      </div>
+    </div>`;
+  stage.appendChild(box);
+  const v=$('video',box), seek=$('.seek',box), pp=$('.pp',box), time=$('.time',box);
+  let ratio=16/9, failed=false, si=0, stallT;
+  const srcs=vidSources(id);
+
+  // video එකේ සැබෑ aspect ratio එකට player එක screen එකට fit කරයි (portrait / landscape දෙකටම)
+  const fit=()=>{ const aw=stage.clientWidth*.96, ah=stage.clientHeight-4;
+    let w=Math.max(160,Math.min(aw,1100,ah*ratio)); box.style.width=w+'px'; box.style.height=(w/ratio)+'px'; };
+  window.__fit=fit; fit();
+
+  function load(i){ clearTimeout(stallT); v.src=srcs[i]; v.load();
+    stallT=setTimeout(()=>{ if(!failed&&v.readyState===0) next(); },20000); }
+  function next(){
+    if(failed) return; si++;
+    if(si<srcs.length){ load(si); return; }
+    failed=true; clearTimeout(stallT);
+    const code=v.error?v.error.code:0, hasKey=srcs.length>2;
+    console.warn('[Drive video] error code '+code+' (3=decode, 4=blocked/unsupported). Drive video සෘජුව play කළ නොහැකි විය. DRIVE_API_KEY එක ඇතුළත් කර ඇත්දැයි, file එක "Anyone with the link" සහ MP4 (H.264) දැයි පරීක්ෂා කරන්න.');
+    ratio=16/9;
+    box.innerHTML=`<iframe src="${prevUrl(id)}" allow="autoplay; fullscreen" allowfullscreen referrerpolicy="no-referrer"></iframe>`;
+    fit();
+    const n=document.createElement('div'); n.className='vnote'; n.textContent=(!hasKey&&location.protocol==='file:')?'පරීක්ෂණ සටහන: වීඩියෝව අපේ player එකේ play කිරීමට DRIVE_API_KEY අවශ්‍යයි.':'මෙම වීඩියෝව සෘජුව ධාවනය කළ නොහැකි විය. විකල්ප ධාවකයෙන් පෙන්වයි.'; stage.appendChild(n);
+  }
+  v.onerror=next;
+  load(0);
+
+  const toggle=()=>{ if(v.ended) v.currentTime=0; v.paused?v.play().catch(()=>{}):v.pause(); };
+  $('.big',box).onclick=toggle; pp.onclick=toggle;
+  // ස්පර්ශ තිරයේ: controls සැඟවී ඇති විට පළමු tap එකෙන් controls පෙන්වයි, pause නොකරයි
+  v.onclick=()=>{ if(box._wasIdle){box._wasIdle=false;return;} toggle(); };
+  v.onplay=()=>{box.classList.add('playing');pp.innerHTML=ic('pause')};
+  v.onpause=()=>{box.classList.remove('playing');pp.innerHTML=ic('play')};
+  v.onwaiting=()=>box.classList.add('wait'); v.onplaying=()=>box.classList.remove('wait');
+  v.oncanplay=()=>box.classList.remove('wait');
+  v.onloadedmetadata=()=>{ clearTimeout(stallT); box.classList.remove('wait'); if(v.videoWidth&&v.videoHeight){ratio=v.videoWidth/v.videoHeight;fit();} };
+  v.ontimeupdate=()=>{const p=v.duration?v.currentTime/v.duration*1000:0;seek.value=p;seek.style.setProperty('--p',(p/10)+'%');time.textContent=`${fmt(v.currentTime)} / ${fmt(v.duration)}`};
+  v.onended=()=>{box.classList.remove('playing');pp.innerHTML=ic('replay')};
+  seek.oninput=()=>{ if(v.duration) v.currentTime=seek.value/1000*v.duration; };
+  $('.b10',box).onclick=()=>v.currentTime=Math.max(0,v.currentTime-10);
+  $('.f10',box).onclick=()=>v.currentTime=Math.min(v.duration||0,v.currentTime+10);
+  const vol=$('.vol',box), mute=$('.mute',box);
+  vol.oninput=()=>{v.volume=vol.value;v.muted=v.volume==0;mute.innerHTML=ic(v.muted?'mute':'vol')};
+  mute.onclick=()=>{v.muted=!v.muted;mute.innerHTML=ic(v.muted?'mute':'vol')};
+  const sp=[1,1.25,1.5,2,.5,.75]; let pi=0;
+  $('.spd',box).onclick=e=>{pi=(pi+1)%sp.length;v.playbackRate=sp[pi];e.currentTarget.textContent=sp[pi]+'x'};
+  const fs=$('.fs',box);
+  fs.onclick=()=>{
+    if(document.fullscreenElement||document.webkitFullscreenElement){ (document.exitFullscreen||document.webkitExitFullscreen).call(document); }
+    else if(box.requestFullscreen) box.requestFullscreen();
+    else if(box.webkitRequestFullscreen) box.webkitRequestFullscreen();
+    else if(v.webkitEnterFullscreen) v.webkitEnterFullscreen();   /* iPhone */
+  };
+  box.addEventListener('fullscreenchange',()=>{ fs.innerHTML=ic(document.fullscreenElement?'exitfull':'full'); fit(); });
+  let t; const wake=()=>{box.classList.remove('idle');clearTimeout(t);t=setTimeout(()=>box.classList.add('idle'),2800)};
+  box.addEventListener('mousemove',wake);
+  box.addEventListener('touchstart',()=>{ box._wasIdle=box.classList.contains('idle')&&box.classList.contains('playing'); wake(); },{passive:true});
+  wake();
+}
+
+$('#yr').textContent=new Date().getFullYear();
+route();
+</script>
+</body>
+</html>
